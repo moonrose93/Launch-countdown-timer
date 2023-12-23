@@ -1,0 +1,299 @@
+body {
+    background-color: rgb(22, 16, 24);
+    background-image: url("./bg-stars.svg"), url("./pattern-hills.svg");
+    background-position: left top, right bottom;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 70% auto, 100% auto;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+  }
+  
+  #countdown {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    display: flex;
+    font-size: 4rem;
+    justify-content: space-between;
+  }
+  
+  .heading {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 180px;
+    text-transform: uppercase;
+    letter-spacing: 0.6rem;
+  }
+  
+  /* .countdown-block now uses display: flex and align-items: center to vertically center the p elements (numbers) and the card.svg pseudo-elements.
+   The ::before pseudo-element for the numbers (p elements) is positioned absolutely at 50% from the top and left of its parent (p element),
+  and then it is translated back by -50% both horizontally and vertically to achieve centering.
+   Adjust the width, height, and background-size properties in .countdown-block p::before as needed to fit your
+ design and ensure the card.svg appears centered behind each number. Also, replace "images/card.svg" with the correct path to your card.svg file.
+  
+  */
+
+
+
+.countdown-block {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  .social-media{
+    width: 200px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top:90%;
+    left:50%;
+    display: flex;
+    justify-content: space-between;
+    
+  }
+
+/* Set initial fill color for SVG icons */
+.social-media svg path {
+  fill: #868484de; /* Change to the initial color */
+  transition: fill 0.3s ease; /* Add smooth transition */
+}
+
+/* Change fill color on hover */
+.social-media svg:hover path {
+  fill: orange; /* Change to the desired hover color */
+  cursor: pointer;
+}
+
+.naming{
+position: absolute;
+transform: translate(-50%,-50%);
+left:50%;
+top:65%;
+display: flex;
+text-transform: uppercase;
+letter-spacing: 0.2rem;
+justify-content: space-between;
+width: 100%;
+max-width: 500px;
+}
+
+.minutes{
+ margin-left: 70px;
+}
+
+
+.seconds{
+ margin-left: 70px;
+}
+.hours{
+  margin-left: 85px;
+ }
+ 
+
+
+
+
+
+
+
+  
+  
+  /*Then we write the countdown-block to set the p elemets before the image card.svg with a z-index 1,
+  and also for every p elemet we add padding of 40px to spread them 40 px from eachother*/
+  .countdown-block p {
+    z-index: 1;
+    margin: 0;
+    padding: 40px;
+    color: rgb(219, 63, 110);
+    font-weight: 600;
+  }
+
+
+
+/*F.countdown-block p::before: This is a CSS selector targeting the pseudo-element ::before of p elements inside elements with the class .countdown-block.
+
+content: "";: This property is used to insert content before the actual content of the p element. In this case, it's empty as it's serving as a background.
+
+position: absolute;: It positions the pseudo-element absolutely relative to its first positioned (not static) ancestor.
+
+top: 50%; and left: 50%;: These properties position the top-left corner of the pseudo-element at the center of its parent element (.countdown-block p in this case).
+
+transform: translate(-50%, -50%);: It moves the pseudo-element back by 50% of its own width and height, ensuring its center aligns perfectly with the center of the parent.
+
+width: 320px; and height: 320px;: These properties set the width and height of the pseudo-element, defining its size. Here, the pseudo-element is set to have a fixed size of 320 pixels by 320 pixels.
+
+background-image: url("images/card.svg");: This property sets the background image for the pseudo-element. It uses the card.svg image as the background.
+
+background-size: 320px 320px;: This property defines the size of the background image within the pseudo-element. It's specifying that the card.svg image should be displayed at a size of 320 pixels by 320 pixels within the pseudo-element.
+
+z-index: -1;: This property sets the stacking order of the pseudo-element. In this case, it's positioned behind the content of the p element due to the negative z-index.
+
+In summary, this CSS code creates a pseudo-element that acts as a background with a fixed size (320 pixels by 320 pixels) and positions it at the center of each p element with the class .countdown-block.
+This background is set using the card.svg image.Adjust the width, height, and background size values as needed to fit your design requirements.*/
+  
+
+
+/*User
+-ok so if i could understand we create a new element with a pseudo class ::before and we set empty content for that element and\
+then we center that pseudo element in the center of the countdown and then we set a background for that element. Right?
+
+Indeed, the code creates a new element visually using a pseudo-element ::before on each p element with the class .countdown-block.
+
+Here's a step-by-step breakdown:
+
+Creating a Pseudo-Element (::before): The CSS uses ::before to generate a pseudo-element before the content of each p element that has the class .countdown-block.
+
+Setting Empty Content: The content: ""; property sets the content of the pseudo-element to empty. This is often used for pseudo-elements that are purely presentational, like backgrounds or decorative elements.
+
+Positioning and Centering: The pseudo-element is positioned absolutely (position: absolute;) within the p element with top: 50%; left: 50%; transform: translate(-50%, -50%); to ensure it is centered both horizontally and vertically within its parent element.
+
+Sizing and Background: The width: 320px; height: 320px; properties determine the size of the pseudo-element, and background-image: url("images/card.svg"); sets the card.svg as the background for this pseudo-element.
+
+Background Size: The background-size: 320px 320px; property specifies the size of the background image within the pseudo-element.
+
+The overall effect of these styles is to create a background image (using card.svg) that appears as a centered square behind each p element with the class .countdown-block. This technique is often used for decorative or background elements in web design.
+Adjusting these styles will allow you to manipulate and control the appearance of these background pseudo-elements according to your design needs.*/
+.countdown-block p::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px; /* Adjust the width of the pseudo-element */
+    height: 320px; /* Adjust the height of the pseudo-element */
+    background-image: url("./card.svg");
+    background-size: 320px 320px; /* Set the background size */
+    z-index: -1;
+  }
+
+
+  .desktop{
+    display: block;
+  }
+
+  .mobile-version{
+    display: none;
+  }
+
+
+  @media(max-width: 420px){
+
+
+
+
+    body {
+      background-color: rgb(22, 16, 24);
+      background-image: url("images/bg-stars.svg"), url("images/pattern-hills.svg");
+      background-position: left top, right bottom;
+      background-repeat: no-repeat, no-repeat;
+      background-size: 200% auto, 400% auto;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    .mobile-version{
+      display: block;
+    }
+
+    .desktop{
+      display: none;
+    }
+  
+  
+    .countdown-block p {
+      z-index: 1;
+      margin: 0;
+      padding: 0px;
+      color: rgb(219, 63, 110);
+      font-weight: 600;
+      font-size: 2rem;
+    }
+
+    .heading-mobile {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      top: 180px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.6rem;
+      font-size: 1rem;
+      line-height: 2rem;
+    }
+
+    #countdown-mobile {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 45%;
+      left: 50%;
+      display: flex;
+     
+      justify-content: space-around;
+      width: 380px;
+      padding: 0px 40px;
+    }
+
+    .naming-mobile{
+      position: absolute;
+      transform: translate(-50%,-50%);
+      left:52%;
+      top:53%;
+      display: flex;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 350px;
+      font-size: 0.6rem;
+      }
+
+
+      .countdown-block p::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150px; /* Adjust the width of the pseudo-element */
+        height: 150px; /* Adjust the height of the pseudo-element */
+        background-image: url("images/card.svg");
+        background-size: 150px 150px; /* Set the background size */
+        z-index: -1;
+      }
+
+     
+      .minutes-mobile{
+        position: relative;
+        left:10px;
+      }
+      .days-mobile{
+        position: relative;
+        left:10px;
+      }
+
+      .hours-mobile{
+        position: relative;
+        left:20px;
+      }
+    
+
+
+  }
+  
+  
+  
